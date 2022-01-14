@@ -6,7 +6,7 @@ from async_timeout import timeout
 import pytest
 import voluptuous as vol
 
-from homeassistant.bootstrap import SIGNAL_BOOTSTRAP_INTEGRATONS
+from homeassistant.bootstrap import SIGNAL_BOOTSTRAP_INTEGRATIONS
 from homeassistant.components.websocket_api import const
 from homeassistant.components.websocket_api.auth import (
     TYPE_AUTH,
@@ -1231,7 +1231,7 @@ async def test_subscribe_unsubscribe_bootstrap_integrations(
 
     message = {"august": 12.5, "isy994": 12.8}
 
-    async_dispatcher_send(hass, SIGNAL_BOOTSTRAP_INTEGRATONS, message)
+    async_dispatcher_send(hass, SIGNAL_BOOTSTRAP_INTEGRATIONS, message)
     msg = await websocket_client.receive_json()
     assert msg["id"] == 7
     assert msg["type"] == "event"
