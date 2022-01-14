@@ -150,7 +150,7 @@ class NexiaZone(NexiaThermostatZoneEntity, ClimateEntity):
         super().__init__(
             coordinator, zone, name=zone.get_name(), unique_id=zone.zone_id
         )
-        self._undo_humidfy_dispatcher = None
+        self._undo_humidify_dispatcher = None
         self._undo_aircleaner_dispatcher = None
         # The has_* calls are stable for the life of the device
         # and do not do I/O
@@ -409,14 +409,14 @@ class NexiaZone(NexiaThermostatZoneEntity, ClimateEntity):
         )
 
         if self._has_dehumidify_support:
-            dehumdify_setpoint = percent_conv(
+            dehumidify_setpoint = percent_conv(
                 self._thermostat.get_dehumidify_setpoint()
             )
-            data[ATTR_DEHUMIDIFY_SETPOINT] = dehumdify_setpoint
+            data[ATTR_DEHUMIDIFY_SETPOINT] = dehumidify_setpoint
 
         if self._has_humidify_support:
-            humdify_setpoint = percent_conv(self._thermostat.get_humidify_setpoint())
-            data[ATTR_HUMIDIFY_SETPOINT] = humdify_setpoint
+            humidify_setpoint = percent_conv(self._thermostat.get_humidify_setpoint())
+            data[ATTR_HUMIDIFY_SETPOINT] = humidify_setpoint
 
         return data
 
