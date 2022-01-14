@@ -1,7 +1,7 @@
 """Support for Meteo-France raining forecast sensor."""
 from meteofrance_api.helpers import (
     get_warning_text_status_from_indice_color,
-    readeable_phenomenoms_dict,
+    readeable_phenomenons_dict,
 )
 
 from homeassistant.components.sensor import SensorEntity
@@ -184,7 +184,7 @@ class MeteoFranceAlertSensor(MeteoFranceSensor):
     def extra_state_attributes(self):
         """Return the state attributes."""
         return {
-            **readeable_phenomenoms_dict(self.coordinator.data.phenomenons_max_colors),
+            **readeable_phenomenons_dict(self.coordinator.data.phenomenons_max_colors),
             ATTR_ATTRIBUTION: ATTRIBUTION,
         }
 
